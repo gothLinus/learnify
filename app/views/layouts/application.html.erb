@@ -38,9 +38,10 @@
 
 <body class="bg-slate-800">
 <!-- Authentication Check -->
- <!-- if user_signed_in?
-   render 'shared/navbar'
- end -->
+<% if user_signed_in? %>
+  <%= render "layouts/navbar" %>
+<% end %>
+
 
 <!-- Main Content -->
 <main class="container mx-auto mt-28 px-5 flex">
