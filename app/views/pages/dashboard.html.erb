@@ -1,1 +1,3 @@
-<h1>jaskdlfj</h1>
+<%= form_with url: destroy_user_session_path, method: :delete, data: { turbo: false }, html: { class: "logout-form" } do |f| %>
+  <%= f.submit 'logout', class: 'logout-btn' %>
+<% end %>

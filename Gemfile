@@ -64,6 +64,7 @@ gem "jquery-rails"
 gem "devise"
 gem "pundit"
 gem 'omniauth'
+gem "rails-ujs"
 gem "tailwindcss-ruby", "~> 4.0"
 
 gem "tailwindcss-rails", "~> 4.0"
