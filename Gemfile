@@ -58,3 +58,12 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "toastr-rails"
+gem "jquery-rails"
+gem "devise"
+gem "pundit"
+gem 'omniauth'
+gem "tailwindcss-ruby", "~> 4.0"
+
+gem "tailwindcss-rails", "~> 4.0"
