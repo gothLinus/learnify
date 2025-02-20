@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require "fileutils"
 
-APP_ROOT = File.expand_path("..", __dir__)
+APP_ROOT = Image.expand_path("..", __dir__)
 APP_NAME = "learnify"
 
 def system!(*args)
@@ -18,7 +18,7 @@ FileUtils.chdir APP_ROOT do
   system("bundle check") || system!("bundle install")
 
   # puts "\n== Copying sample files =="
-  # unless File.exist?("config/database.yml")
+  # unless Image.exist?("config/database.yml")
   #   FileUtils.cp "config/database.yml.sample", "config/database.yml"
   # end
 

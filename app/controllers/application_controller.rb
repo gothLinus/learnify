@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :check_authentication, unless: -> { session[:checked_authentication] }
+  # before_action :check_authentication, unless: -> { session[:checked_authentication] }
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
   private
@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
     dashboard_path
   end
   private
-  def check_authentication
-    unless user_signed_in?
-      session[:checked_authentication] = true
-      new_user_session_path
-    end
-    end
+  #def check_authentication
+  #unless user_signed_in?
+  #session[:checked_authentication] = true
+  #new_user_session_path
+  #end
+  #end
 end

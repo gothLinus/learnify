@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_scope :user do
   authenticated :user do
     root to: "pages#index", as: :dashboard
+    resources :cards
   end
 
   unauthenticated do

@@ -4,8 +4,8 @@ class CreateCards < ActiveRecord::Migration[7.2]
       t.string :title
       t.string :description
 
-      t.references :users, foreign_key: true, null: false, cascade: true
-      t.references :collections, foreign_key: true, null: false
+      t.belongs_to :user, foreign_key: true, null: false
+      t.belongs_to :collection, foreign_key: true, null: false
 
       t.timestamps
     end

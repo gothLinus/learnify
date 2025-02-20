@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class PagesController < ProtectedResourceController
   def index
     render "pages/dashboard"
   end
