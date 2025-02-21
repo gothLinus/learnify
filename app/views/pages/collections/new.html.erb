@@ -1,0 +1,8 @@
+<div>
+    <%= render "pages/collections/form",
+               action: collections_path,
+               method: :post,
+               collection: nil
+    %>
+  </div>
+  <%= link_to "Back", collections_path, data: { turbo_frame: "_top" } %>

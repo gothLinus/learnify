@@ -1,0 +1,23 @@
+ <div>
+    <%= link_to "Back", collections_path, data: { turbo_frame: "_top" } %>
+
+    <ul>
+      <% if @collection.cards.any? %>
+        <% @collection.cards.each do |card| %>
+          <li>
+            <%= link_to card.title, card_path(card), data: { turbo_frame: "_top" } %>
+          </li>
+        <% end %>
+      <% else %>
+        <p>No Cards found.</p>
+      <% end %>
+    </ul>
+
+    <% if policy(@collection).update? %>
+      <%= link_to "Edit", edit_collection_path(@collection), data: { turbo_frame: "_top" } %>
+    <% end %>
+
+    <% if policy(@collection).destroy? %>
+      <%= button_to "Delete", collection_path(@collection), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+    <% end %>
+  </div>

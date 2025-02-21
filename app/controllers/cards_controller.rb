@@ -1,12 +1,15 @@
 class CardsController < ProtectedResourceController
-  before_action :set_card, except: [ :new, :create ]
+  #before_action :set_and_authorize_card, only: [:show, :update, :destroy, :edit]
   def new
     @card = Card.new
+    @collections = current_user.collection.all
+    authorize @card
     render 'pages/cards/new'
   end
   def create
-    @card = current_user.cards.build(card_params.except(:timer, :images))
-    @card.build_collection(Collection())
+    @collection = current_user.collection.find(params[:collection_id])
+    @card = @collection.cards.build(card_params.except(:timer, :images))
+    authorize @card
 
     if @card.save
       @card.create_timer(time: card_params[:timer]) if card_params[:timer].present?
@@ -18,14 +21,12 @@ class CardsController < ProtectedResourceController
     end
   end
 
+  private
+  def set_and_authorize_card
+    @card = current_user.cards.find(params[:id])
+    authorize @card
+  end
   def card_params
     params.require(:card).permit(:title, :description, :timer, images: [])
   end
-
-  private
-
-  def set_card
-    @card = Card.find(params[:id])
-  end
-
 end

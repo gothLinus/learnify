@@ -1,0 +1,15 @@
+<div>
+    <% if policy(Collection).create? %>
+      <%= link_to "New", new_collection_path, data: { turbo_frame: "_top" } %>
+    <% end %>
+
+    <ol>
+      <% @collections.each do |collection| %>
+        <li>
+          <%= link_to collection.name, collection_path(collection), data: { turbo_frame: "_top" } %>
+        </li>
+      <% end %>
+    </ol>
+
+    <%= will_paginate @collections %>
+  </div>

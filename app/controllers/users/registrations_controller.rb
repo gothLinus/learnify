@@ -10,9 +10,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+   def create
+     super
+     flash[:message] = "You have been registered successfully."
+   end
 
   # GET /resource/edit
   # def edit

@@ -1,0 +1,8 @@
+ <div>
+    <%= render "collections/form",
+               action: collection_path(@collection),
+               method: :put,
+               collection: @collection
+    %>
+  </div>
+  <%= link_to "Back", collection_path(@collection), data: { turbo_frame: "_top" } %>

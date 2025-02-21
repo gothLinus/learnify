@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root to: "pages#index", as: :dashboard
     resources :cards
+    resources :collections
   end
 
   unauthenticated do
